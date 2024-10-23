@@ -1,154 +1,87 @@
-# Discord Clone 
+# FullStack Discord Clone: Next.js 13, React, Socket.io, Prisma, Tailwind, MySQL & TypeScript.
 
-## Overview
+Credits: [Antonio Erdeljac](https://github.com/AntonioErdeljac)
 
-This project is a Discord clone website created using Next.js 13 with a wide range of features and technologies to provide users with a robust chat and communication platform. It offers real-time messaging, multimedia support, voice and video calls, member management, server customization, and more.
+Features:
 
-## Features
+- Client form validation and handling using react-hook-form
+- POST, DELETE, and GET routes in route handlers (app/api & pages)
+- Real-time messaging using Socket.io
+- Send attachments as messages using UploadThing
+- Delete & Edit messages in real time for all users
+- Create Text, Audio and Video call Channels
+- 1:1 conversation between members
+- 1:1 video calls between members
+- Member management (Kick, Role change Guest / Moderator)
+- Unique invite link generation & full working invite system
+- Infinite loading for messages in batches of 10 (tanstack/query)
+- Server creation and customization
+- Beautiful UI using TailwindCSS and ShadcnUI
+- Full responsivity and mobile UI
+- Light / Dark mode
+- Websocket fallback: Polling with alerts
+- ORM using Prisma
+- MySQL database using Planetscale
+- Authentication with Clerk
 
-### Real-time Messaging
+### Prerequisites
 
-- Utilizes Socket.io for real-time messaging, ensuring instant communication between users.
+**Node version 18.x.x**
 
-### File Attachments
+### Cloning the repository
 
-- Users can send attachments as messages, enhancing the user experience.
+```shell
+git clone https://github.com/nayak-nirmalya/discord-clone.git
+```
 
-### Message Management
+### Install packages
 
-- Allows users to delete and edit messages in real time, ensuring a smooth and interactive chat experience.
+```shell
+npm install
+```
 
-### Communication Channels
+### Setup .env file
 
-- Supports text, audio, and video call channels, offering various communication options to users.
+```js
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+CLERK_SECRET_KEY=
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=
+NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=
+NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=
 
-### Private Conversations
+DATABASE_URL=
 
-- Enables one-on-one conversations between members for private interactions.
+UPLOADTHING_SECRET=
+UPLOADTHING_APP_ID=
 
-### Video Calls
+LIVEKIT_API_KEY=
+LIVEKIT_API_SECRET=
+NEXT_PUBLIC_LIVEKIT_URL=
+```
 
-- Supports one-on-one video calls between members for face-to-face communication.
+### Setup Prisma
 
-### Member Management
+Add MySQL Database (PlanetScale)
 
-- Admins can kick users and change their roles between guest and moderator for effective member management.
+```shell
+npx prisma generate
+npx prisma db push
+```
 
-### Invite System
+### Start the app
 
-- Implements a unique invite link generation system for inviting new members to the platform.
+```shell
+npm run dev
+```
 
-### Message Pagination
+## Available commands
 
-- Uses tanstack/query to load messages in batches of 10, providing an efficient and seamless chat experience.
+Running commands with npm `npm run [command]`
 
-### Server Customization
-
-- Allows users to create and customize servers to tailor their experience to their preferences.
-
-### User Interface
-
-- Features a beautiful and responsive UI design using TailwindCSS and ShadcnUI, ensuring an aesthetically pleasing user experience.
-
-### Light/Dark Mode
-
-- Offers both light and dark mode options to accommodate user preferences and reduce eye strain.
-
-### Websocket Fallback
-
-- Implements a fallback mechanism using polling with alerts in case WebSocket connectivity is unavailable.
-
-### Database and ORM
-
-- Utilizes Prisma as an Object-Relational Mapping (ORM) tool and a MySQL database hosted on Planetscale for efficient data management.
-
-### Authentication
-
-- Implements user authentication using Clerk for secure and personalized user experiences.
-
-## Getting Started
-
-1. Clone this repository to your local machine.
-
-   ```shell
-   git clone https://github.com/impruthvi/discord-clone-nextjs.git
-   ```
-2. Install the necessary dependencies.
-   ```shell
-   cd discord-clone-nextjs
-   npm install
-   ```
-3. Configure environment variables for database, authentication, and other settings.
-   ```shell
-   cp .env.example .env
-   ```
-
- 4. Start the development server.
-    ```shell
-    npm run dev
-     ```
-  5. Access the application in your web browser at http://localhost:3000.
-
-## Technologies Used
-
-The Discord clone website is built using the following technologies and tools:
-
-- **Next.js 13:** A popular JavaScript framework for building modern web applications, offering server-side rendering and a great developer experience.
-
-- **Socket.io:** A library for real-time, bidirectional communication between clients and the server, enabling instant messaging.
-
-- **UploadThing:** Used for sending attachments as messages within the chat application.
-
-- **Prisma:** An Object-Relational Mapping (ORM) tool for working with databases, simplifying database interactions.
-
-- **MySQL (Planetscale):** A relational database used for storing and managing data, hosted on Planetscale for scalability and reliability.
-
-- **Clerk:** Provides user authentication and user management features to enhance security and user experiences.
-
-- **Tanstack/Query:** Used for efficient message pagination, fetching data in batches for a smooth chat experience.
-
-- **TailwindCSS:** A utility-first CSS framework for creating beautiful and responsive user interfaces.
-
-- **ShadcnUI:** A UI component library or framework used to enhance the aesthetics and user experience of the website.
-
-
-## Contributing
-
-We welcome and appreciate contributions from the open-source community. If you'd like to contribute to this project, please follow these guidelines:
-
-1. Fork the repository to your GitHub account.
-
-2. Create a new branch for your feature or bug fix:
-
-   ```shell
-   git checkout -b feature/your-feature
-    ```
-3. Commit your changes with a descriptive commit message:
-   ```shell
-   git commit -m "Add feature: your feature description"
-   ```
-4. Push your changes to your fork:
-   ```shell
-    git push origin feature/your-feature
-   ```
-5. Create a pull request (PR) to the main repository, describing your changes and improvements.
-6. Your PR will be reviewed, and once approved, your changes will be merged into the project.
-
-- Thank you for contributing to our project!
-
-## Demo
-
-Check out the live demo of Discord Clone [here](https://discord-clone-impruthvi.vercel.app/).
-
-## Contact
-
-Created by [@impruthvi](https://impruthvi.netlify.app/) if you have any questions or suggestions.
-
-## License
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
-## Support
-
-If you find this project helpful or interesting, please consider giving it a ⭐️ on GitHub!
-   
+| command | description                              |
+| :------ | :--------------------------------------- |
+| `dev`   | Starts a development instance of the app |
+| `lint`  | Run lint check                           |
+| `build` | Start building app for deployment        |
+| `start` | Run build version of app                 |
